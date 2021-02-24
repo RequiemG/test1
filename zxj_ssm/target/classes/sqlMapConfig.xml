@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 加载数据库配置文件信息 -->
+    <properties resource="jdbc.properties"/>
+
+    <typeAliases>
+        <typeAlias type="cn.zxj.domain.Account" alias="account"/>
+        <!--<package name="cn.zxj.domain"/>  domain下的所有实体的包-->
+    </typeAliases>
+
+<!--    <typeHandlers>
+        <typeHandler handler="cn.zxj.handler.DataConvert"/>
+    </typeHandlers>-->
+
+    <!--分页助手插件-->
+<!--    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageHelper">
+            <property name="dialect" value="mysql"/>
+        </plugin>
+    </plugins>-->
+
+
+    <!-- 配置数据源环境 -->
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!-- 加载映射文件 -->
+    <mappers>
+        <mapper resource="cn/zxj/mapper/AccountMap.xml"/>
+        <!--<package name="cn.zxj.mapper"/>-->
+    </mappers>
+</configuration>
